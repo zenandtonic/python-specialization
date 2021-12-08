@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>List Operations | Devmountain Foundations</title>
+
+      <link
+        href="_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+
+      <script src="_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">List Operations</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">List Operations</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a><ul>
+<li><a class="reference internal" href="#download-materials">Download Materials</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#intro">Intro</a><ul>
+<li><a class="reference internal" href="#docstrings-doctests">Docstrings &amp; Doctests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finish-the-functions">Finish the Functions</a><ul>
+<li><a class="reference internal" href="#fundamental-operations-on-lists">Fundamental Operations On Lists</a></li>
+<li><a class="reference internal" href="#go">Go!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#done">Done?</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="list-operations">
+<h1>List Operations</h1>
+<section class="section" id="setup">
+<h2>Setup</h2>
+<section class="section" id="download-materials">
+<h3>Download Materials</h3>
+<p>Ensure that you have the materials for the exercises by downloading
+the starter code from Frodo.</p>
+</section>
+</section>
+<section class="section" id="intro">
+<h2>Intro</h2>
+<p>This exercise will have you implement various utility functions to use with
+lists. There’s one catch though — you can only use fundamental list operations
+to complete each function!</p>
+<p>We’ve included a file — <cite>list_operations.py</cite> — that contains <cite>function
+stubs</cite> (function stubs are functions that are partially complete). Each function
+has a docstring that describes how it should work and gives an example of how
+the function ought to work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the first item of the input list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="hll"><span class="sd">      &gt;&gt;&gt; head([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;])</span>
+</span><span class="hll"><span class="sd">      &#39;Jan&#39;</span>
+</span><span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Note that the code examples show how each function should work if you were
+running them in the Python interpreter. That’s why they begin with <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>.
+These examples aren’t purely illustrative though; Python has the ability to do
+something <em>pretty rad</em> with them. We’ll show you what we mean in the next
+section.</p>
+<section class="section" id="docstrings-doctests">
+<h3>Docstrings &amp; Doctests</h3>
+<p>Try running <cite>list_operations.py</cite>. You should see a lot of console output that
+looks something like this:</p>
+<pre class="console literal-block">$ <span class="cmd">python3 list_operations.py</span>
+  <span class="tan">(many lines redacted)</span>
+
+<strong>******************************************************************</strong>
+14 items had failures:
+   1 of   3 in __main__.delete_middle
+   1 of   3 in __main__.delete_third_and_seventh
+   1 of   1 in __main__.first_three
+   1 of   1 in __main__.head
+   1 of   1 in __main__.init
+   1 of   1 in __main__.inner_four
+   1 of   1 in __main__.inner_four_end
+   1 of   1 in __main__.last
+   1 of   1 in __main__.last_five
+   1 of   1 in __main__.middle
+   1 of   3 in __main__.replace_head
+   1 of   3 in __main__.replace_middle
+   1 of   3 in __main__.replace_third_and_last
+   1 of   1 in __main__.tail
+<strong>*Test Failed*</strong> 14 failures.</pre>
+<p>Runnning <cite>list_operations.py</cite> also runs 14 <em>tests</em> (and they all failed but
+that’s understandable — the functions are incomplete after all). These tests
+actually come from the examples in those docstrings! As such, they’re aptly
+known as <cite>doctests</cite>.</p>
+<p>When you run this file, the doctest code examples are treated like real code
+and run inside the Python interpreter. Depending on what happens when the code
+samples get run, Python’s <cite>doctest</cite> utility formats some helpful output for you,
+which is what you’re seeing when you run the file.</p>
+<p>All of your tests failed because there’s nothing in any of your
+<cite>list_operations.py</cite> functions. So whatever your functions return (they return
+nothing, or the wrong result) doesn’t match what the tests expect (very
+specific results, including not nothing). When a test fails, it will print
+the characters that don’t match the expected printout in the terminal. This
+will be helpful for troubleshooting your functions.</p>
+</section>
+</section>
+<section class="section" id="finish-the-functions">
+<h2>Finish the Functions</h2>
+<p>Your task is to complete all the functions in <cite>list_operations.py</cite> so that all
+tests pass <strong>with a limited toolset.</strong> How limited? Very limited. You can
+only use fundamental list operations so keep reading to understand what we
+mean by that.</p>
+<div class="admonition note">
+<p class="admonition-title">Resources</p>
+<div class="admonition-body docutils container">
+<p>If you get stuck during this exercise, you may find the following articles
+helpful to reference:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/introduction.html#lists" target="_blank">An Informal Introduction to Python: Lists</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" target="_blank">The Python Tutorial: Data Structures - More on Lists</a></p></li>
+</ul>
+<p><em>You do NOT need to complete the exercises in these articles before moving on.</em></p>
+</div>
+</div>
+<section class="section" id="fundamental-operations-on-lists">
+<h3>Fundamental Operations On Lists</h3>
+<p>Anything that you can’t re-implement in Python is fundamental to the language.
+Fundamental list operations include:</p>
+<ul class="simple">
+<li><p>List indexing (<code class="docutils literal notranslate"><span class="pre">some_list[index]</span></code>)</p></li>
+<li><p>List indexing assignment (<code class="docutils literal notranslate"><span class="pre">some_list[index]</span> <span class="pre">=</span> <span class="pre">value</span></code>)</p></li>
+<li><p>List slicing (<code class="docutils literal notranslate"><span class="pre">some_list[start:end]</span></code>)</p></li>
+<li><p>List slicing assignment (<code class="docutils literal notranslate"><span class="pre">some_list[start:end]</span> <span class="pre">=</span> <span class="pre">another_list</span></code>)</p></li>
+<li><p>List index deletion (<code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">some_list[index]</span></code>)</p></li>
+<li><p>List slicing deletion (<code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">some_list[start:end]</span></code>)</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Not Allowed!</p>
+<div class="admonition-body docutils container">
+<p>You may not:</p>
+<ul class="simple">
+<li><p>Use any of the <a class="reference external" href="https://docs.python.org/3/library/functions.html" target="_blank">Python built-in methods</a> for lists.</p></li>
+<li><p>Use the <cite>len()</cite> function Python provides to get the list length.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section" id="go">
+<h3>Go!</h3>
+<p>Your mission: Make all of the tests pass.</p>
+<p>You’ll do this by actually writing the functions in <cite>list_operations.py</cite>.</p>
+<p><em>IMPORTANT</em>: Each time you think you have a function working, re-run your
+program and check whether the number of failures went down. Because of how we
+set up the files, all you have to do is:</p>
+<pre class="console literal-block">$ <span class="cmd">python3 list_operations.py</span></pre>
+<p>You can also read the output and double check that there are no failures showing
+for the function that you were writing.</p>
+<p>When you’ve succeeded, you should see only this output when you run your tests:</p>
+<pre class="console literal-block">$ <span class="cmd">python3 list_operations.py</span>
+ALL TESTS PASSED</pre>
+<p>Run this command and check the output after every single function that you
+write. The tests are meant to help you.</p>
+</section>
+</section>
+<section class="section" id="done">
+<h2>Done?</h2>
+<p>If you have time, check out the <a class="reference external" href="further-study">Further Study</a>.</p>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="_static/main.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+  </body>
+</html>

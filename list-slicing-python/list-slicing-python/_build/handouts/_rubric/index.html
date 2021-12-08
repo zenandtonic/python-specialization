@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Rubric | Devmountain Foundations</title>
+
+      <link
+        href="../_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="../_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+
+      <script src="../_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">Rubric</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Rubric</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#gotchas">Gotchas</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#code-reviews">Code Reviews</a></li>
+<li><a class="reference internal" href="#code-review-1">Code Review 1</a></li>
+<li><a class="reference internal" href="#code-review-2">Code Review 2</a></li>
+<li><a class="reference internal" href="#further-study">Further Study</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="rubric">
+<h1>Rubric</h1>
+<dl class="field-list simple">
+<dt class="field-odd">topics</dt>
+<dd class="field-odd"><p>Lists, slicing, testing, in place vs copy in memory</p>
+</dd>
+<dt class="field-even">further study concepts</dt>
+<dd class="field-even"><p>N/A</p>
+</dd>
+<dt class="field-odd">requires</dt>
+<dd class="field-odd"><p>Basic Python and Command Line, Lists lecture</p>
+</dd>
+<dt class="field-even">time</dt>
+<dd class="field-even"><p>2-4 hours</p>
+</dd>
+<dt class="field-odd">authors</dt>
+<dd class="field-odd"><p>Christian Fernandez, Joel Burton, Meggie Mahnken</p>
+</dd>
+</dl>
+<section class="section" id="goals">
+<h2>Goals</h2>
+<p>Students will complete functions in order to pass tests working with lists and testing. Students will gain familiarity with Python functions, list slicing and testing.</p>
+<p>Students will be exposed to testing practices.</p>
+</section>
+<section class="section" id="gotchas">
+<h2>Gotchas</h2>
+<p>There is confusion on inner_four_end function, the code is correct, it is asking for the list in the correct order, but the docstring could be interpreted as reversed order</p>
+<p>When doing code reviews, watch for:</p>
+<ul>
+<li><p>make sure students are actually USING the test output to check whether their functions succeed.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If they haven’t yet run the file and examined the test output, ask if they have read
+<em>all</em> of the directions.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>use of built-in functions that are not allowed (append, reverse, etc.)</p></li>
+<li><p>editing the list in-place vs. making a copy</p></li>
+<li><p>most function in part 1 can be done in one line</p></li>
+<li><p>handles more than one space between operators or numbers</p></li>
+<li><p>for the function that deletes two items, point out that it’s better to delete the latter item first due to index change</p></li>
+<li><dl class="simple">
+<dt>replace_third_and_last: can be done on one line using unpacking</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input_list[2],</span> <span class="pre">input_list[-1]</span> <span class="pre">=</span> <span class="pre">37,</span> <span class="pre">37</span></code></p></li>
+<li><p>Have also seen: <code class="docutils literal notranslate"><span class="pre">input_list[2]</span> <span class="pre">=</span> <span class="pre">input_list[-1]</span> <span class="pre">=</span> <span class="pre">37</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section class="section" id="notes">
+<h2>Notes</h2>
+<p>Important note: in the main part of the exercise, students CAN use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">input_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>However, you could easily accomplish this without using <code class="docutils literal notranslate"><span class="pre">del</span></code> with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_list</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>This exercise can take a while. Be prepared to reassure students who don’t make
+it through the extra credit.</p>
+</section>
+<section class="section" id="code-reviews">
+<h2>Code Reviews</h2>
+</section>
+<section class="section" id="code-review-1">
+<h2>Code Review 1</h2>
+<ul class="simple">
+<li><p>list_operations.py file suggests students get a code review in the middle of the file</p></li>
+<li><dl class="simple">
+<dt>Will have completed the following functions:</dt><dd><ul>
+<li><p>head (index to get first item)</p></li>
+<li><p>tail (return all elements except the first item of a list)</p></li>
+<li><p>last (return the last item of a list)</p></li>
+<li><p>init (return all elements except last item from a list)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Good time to discuss pairing – who’s driving, who’s navigating?</p></li>
+</ul>
+</section>
+<section class="section" id="code-review-2">
+<h2>Code Review 2</h2>
+<ul class="simple">
+<li><p>Students should have all tests passing in the <code class="docutils literal notranslate"><span class="pre">list_operations.py</span></code> file.</p></li>
+<li><p>Discuss what doctests are and how they’re implemented.</p></li>
+<li><dl class="simple">
+<dt>Discuss different ways of deleting (del vs. list slicing)</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">input_list[index]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input_list[start:end]</span> <span class="pre">=</span> <span class="pre">[]</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Discussion: are students editing list in place or making copies? What does it mean to do both?</p></li>
+<li><p>Shouldn’t have used any built-in list methods</p></li>
+</ul>
+</section>
+<section class="section" id="further-study">
+<h2>Further Study</h2>
+<ul class="simple">
+<li><p>Not many students got to this piece in Grace Summer 2016</p></li>
+<li><p>Almost all pairs got to this in Grace Fall 2016 (every pair except one)</p></li>
+<li><p>Students build their own list methods using slicing and indexing</p></li>
+<li><p>Functions should build off of one another (ex: students can use custom_len in their custom_append function…)</p></li>
+</ul>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="../_static/main.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+  </body>
+</html>

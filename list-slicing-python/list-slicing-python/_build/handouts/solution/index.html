@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Solution | Devmountain Foundations</title>
+
+      <link
+        href="../_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="../_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+
+      <script src="../_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">Solution</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Solution</a><ul>
+<li><a class="reference internal" href="#basic-exercise">Basic Exercise</a></li>
+<li><a class="reference internal" href="#further-study">Further Study</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="solution">
+<h1>Solution</h1>
+<p>Some parts of this exercise require clever thinking about how to solve a problem
+without using the forbidden built-in methods. Of course, in real life, you
+<strong>should</strong> use those methods. We just want you to practice understanding
+algorithmic thinking and to cement your understanding of the fundamental list
+operations!</p>
+<section class="section" id="basic-exercise">
+<h2>Basic Exercise</h2>
+<p>This is the completed version of the first part of the exercise:</p>
+<div class="literal-block-wrapper docutils container" id="list-ops-soln">
+<div class="code-block-caption"><span class="caption-text">list_operations.py</span></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Utilities for manipulating lists.&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the first item in the list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; head([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;])</span>
+<span class="sd">        &#39;Jan&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a new list of all items, excluding the first item.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; tail([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;])</span>
+<span class="sd">        [&#39;Feb&#39;, &#39;Mar&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+
+<span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the last item of the input list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; last([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;])</span>
+<span class="sd">        &#39;Mar&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return all items of the input list except the last.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; top([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;])</span>
+<span class="sd">        [&#39;Jan&#39;, &#39;Feb&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">first_three</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the first three elements of the input list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; first_three([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;])</span>
+<span class="sd">        [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">last_five</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the last five elements of the input list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; last_five([0, 3, 6, 9, 12, 15, 18, 21, 24, 27])</span>
+<span class="sd">        [15, 18, 21, 24, 27]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+
+
+<span class="k">def</span> <span class="nf">middle</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return all elements of input_list except the first two and the last two.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; middle([0, 3, 6, 9, 12, 15, 18, 21, 24, 27])</span>
+<span class="sd">        [6, 9, 12, 15, 18, 21]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">inner_four</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the third, fourth, fifth, and sixth elements of input_list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; inner_four([0, 3, 6, 9, 12, 15, 18, 21, 24, 27])</span>
+<span class="sd">        [6, 9, 12, 15]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">inner_four_end</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the elements that are 6th, 5th, 4th, and 3rd from the end of input_list.</span>
+
+<span class="sd">    This function should return those elements in a list, in the exact order</span>
+<span class="sd">    described above.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; inner_four_end([0, 3, 6, 9, 12, 15, 18, 21, 24, 27])</span>
+<span class="sd">        [12, 15, 18, 21]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">replace_head</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Replace the head of input_list with the value 42 and return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; multiples = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]</span>
+<span class="sd">        &gt;&gt;&gt; replace_head(multiples)</span>
+<span class="sd">        &gt;&gt;&gt; multiples == [42, 3, 6, 9, 12, 15, 18, 21, 24, 27]</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+
+
+<span class="k">def</span> <span class="nf">replace_third_and_last</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Replace third and last elements of input_list with 37 and return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; multiples = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]</span>
+<span class="sd">        &gt;&gt;&gt; replace_third_and_last(multiples)</span>
+<span class="sd">        &gt;&gt;&gt; multiples == [0, 3, 37, 9, 12, 15, 18, 21, 24, 37]</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">37</span>
+
+
+<span class="k">def</span> <span class="nf">replace_middle</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Replace all elements of a list but the first two and last two with 42 and 37.</span>
+
+<span class="sd">    After the replacement, 42 and 37 should appear in that order in input_list.</span>
+
+<span class="sd">    Return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; multiples = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]</span>
+<span class="sd">        &gt;&gt;&gt; replace_middle(multiples)</span>
+<span class="sd">        &gt;&gt;&gt; multiples == [0, 3, 42, 37, 24, 27]</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">delete_third_and_seventh</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove third and seventh elements of input_list and return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; notes = [&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; delete_third_and_seventh(notes)</span>
+<span class="sd">        &gt;&gt;&gt; notes == [&#39;Do&#39;, &#39;Re&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Do&#39;]</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">input_list</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">delete_middle</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove all elements from input_list except the first two and last two.</span>
+
+<span class="sd">    Return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; notes = [&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; delete_middle(notes)</span>
+<span class="sd">        &gt;&gt;&gt; notes == [&#39;Do&#39;, &#39;Re&#39;, &#39;Ti&#39;, &#39;Do&#39;]</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="c1"># This is the part were we actually run the doctests.</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">failed</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ALL TESTS PASSED&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section class="section" id="further-study">
+<h2>Further Study</h2>
+<p>Here’s the code for the Further Study problems, too:</p>
+<div class="literal-block-wrapper docutils container" id="list-ops-soln-fs">
+<div class="code-block-caption"><span class="caption-text">further_study.py</span></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Custom implementations of several standard Python list methods.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">list_operations</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">custom_len</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return number of items in the list.</span>
+
+<span class="sd">    The function custom_len(input_list) should have</span>
+<span class="sd">    the same functionality and result as len(input_list).</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_len([&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;])</span>
+<span class="sd">        8</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># The `_` in the for-loop below is a variable name used to</span>
+    <span class="c1"># communicate to other devs that we don&#39;t intend to use that</span>
+    <span class="c1"># variable anywhere in the body of the for-loop. This is a code</span>
+    <span class="c1"># style thing --- Python just thinks `_` is a regular variable.</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="c1"># For the next four exercises, you&#39;ll need to be clever and think about ways</span>
+<span class="c1"># to use &quot;list slice assignment&quot; to solve these problems.</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: these are especially contrived--for example, you wouldn&#39;t really want</span>
+<span class="c1"># to typically append things to a list like this (you&#39;d want to to use the</span>
+<span class="c1"># list.append() method), but we want you to practice list slicing assignment</span>
+<span class="c1"># in different ways so it sticks in your brain.</span>
+
+
+<span class="k">def</span> <span class="nf">custom_append</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add the value to the end of the list.</span>
+
+<span class="sd">    The function custom_append(input_list, value) should have the same</span>
+<span class="sd">    functionality as input_list.append(value) where value is added to the</span>
+<span class="sd">    end of the list and the function returns nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; notes = [&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; custom_append(notes, &#39;Re&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; notes == [&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;, &#39;Re&#39;]</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">list_length</span> <span class="o">=</span> <span class="n">custom_len</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    <span class="n">input_list</span><span class="p">[</span><span class="n">list_length</span><span class="p">:</span><span class="n">list_length</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">custom_extend</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">second_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Append every item in second_list to input_list.</span>
+
+<span class="sd">    Like input_list.extend(second_list), custom_extend(input_list, second_list)</span>
+<span class="sd">    should append every item in the second list to the end of the first list</span>
+<span class="sd">    and return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; months = [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; custom_extend(months, [&#39;Apr&#39;, &#39;May&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; months == [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;]</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list_length</span> <span class="o">=</span> <span class="n">custom_len</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+    <span class="n">input_list</span><span class="p">[</span><span class="n">input_list_length</span><span class="p">:</span><span class="n">input_list_length</span><span class="p">]</span> <span class="o">=</span> <span class="n">second_list</span>
+
+
+<span class="k">def</span> <span class="nf">custom_insert</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Insert value at index in the list.</span>
+
+<span class="sd">    Like input_list.insert(index, value), should insert (not replace) the value</span>
+<span class="sd">    at the specified index of the input list and return nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; months = [&#39;Jan&#39;, &#39;Mar&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; custom_insert(months, 1, &#39;Feb&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; months == [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;]</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_list</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">custom_remove</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove the first item of the value in list.</span>
+
+<span class="sd">    The function custom_remove(input_list, value) should have the same</span>
+<span class="sd">    functionality as input_list.remove(value) where the first item of</span>
+<span class="sd">    the value specified is removed and the function returns nothing.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; notes = [&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; custom_remove(notes, &#39;Do&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; notes == [&#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;]</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">input_list</span><span class="p">[</span><span class="n">counter</span><span class="p">:</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">break</span>
+
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">custom_pop</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove the last item in the list and returns it.</span>
+
+<span class="sd">    The function custom_pop(input_list) should have the same functionality</span>
+<span class="sd">    and result as input_list.pop().</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; months = [&#39;Jan&#39;, &#39;Feb&#39;, &#39;March&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; custom_pop(months)</span>
+<span class="sd">        &#39;March&#39;</span>
+<span class="sd">        &gt;&gt;&gt; months</span>
+<span class="sd">        [&#39;Jan&#39;, &#39;Feb&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">last_value</span> <span class="o">=</span> <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">return</span> <span class="n">last_value</span>
+
+
+<span class="k">def</span> <span class="nf">custom_index</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the index of the first item of value found in input_list.</span>
+
+<span class="sd">    The function custom_index(input_list, value) should have the same</span>
+<span class="sd">    functionality and result as input_list.index(value).</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_index([&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;], &#39;Re&#39;)</span>
+<span class="sd">        1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">counter</span>
+
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">custom_count</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the number of times value appears in the list.</span>
+
+<span class="sd">    Like input_list.count(value), custom_count(input_list, value) should</span>
+<span class="sd">    return the number of times the specified value appears in the list.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_count([&#39;Do&#39;, &#39;Re&#39;, &#39;Mi&#39;, &#39;Fa&#39;, &#39;So&#39;, &#39;La&#39;, &#39;Ti&#39;, &#39;Do&#39;], &#39;Do&#39;)</span>
+<span class="sd">        2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">counter</span>
+
+
+<span class="k">def</span> <span class="nf">custom_reverse</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reverse the elements of the input_list.</span>
+
+<span class="sd">    Like input_list.reverse(), custom_reverse(input_list) should reverse the</span>
+<span class="sd">    elements of the original list and return nothing (we call this reversing</span>
+<span class="sd">    &quot;in place&quot;).</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; multiples = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]</span>
+<span class="sd">        &gt;&gt;&gt; custom_reverse(multiples)</span>
+<span class="sd">        &gt;&gt;&gt; multiples == [27, 24, 21, 18, 15, 12, 9, 6, 3, 0]</span>
+<span class="sd">        True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">swap_number</span> <span class="o">=</span> <span class="n">custom_len</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">swap_number</span><span class="p">):</span>
+        <span class="n">current_n</span> <span class="o">=</span> <span class="n">input_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">current_neg_n</span> <span class="o">=</span> <span class="n">input_list</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">input_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_neg_n</span>
+        <span class="n">input_list</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_n</span>
+
+
+<span class="k">def</span> <span class="nf">custom_contains</span><span class="p">(</span><span class="n">input_list</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return True or False depending on whether value is in the input_list.</span>
+
+<span class="sd">    Like (value in input_list), should return True if the list contains the</span>
+<span class="sd">    specified value and False if it does not. Remember, do not use the `if X in Y`</span>
+<span class="sd">    statement -- find another way to solve it!</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_contains([0, 3, 6, 9, 12, 15, 18, 21, 24], 23)</span>
+<span class="sd">        False</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_contains([0, 3, 6, 9, 12, 15, 18, 21, 24], 24)</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">custom_equality</span><span class="p">(</span><span class="n">some_list</span><span class="p">,</span> <span class="n">another_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return True if passed lists are identical, False otherwise.</span>
+
+<span class="sd">    Like (some_list == another_list), custom_equality(some_list, another_list)</span>
+<span class="sd">    should return True if both lists contain the same values in the same indexes.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_equality([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;], [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;])</span>
+<span class="sd">        True</span>
+
+<span class="sd">        &gt;&gt;&gt; custom_equality([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;], [&#39;Jan&#39;, &#39;Mar&#39;, &#39;Feb&#39;])</span>
+<span class="sd">        False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">custom_len</span><span class="p">(</span><span class="n">some_list</span><span class="p">)</span> <span class="o">!=</span> <span class="n">custom_len</span><span class="p">(</span><span class="n">another_list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">some_list</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">some_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">another_list</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="c1"># This is the part were we actually run the doctests.</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">failed</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ALL TESTS PASSED&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="../_static/main.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+  </body>
+</html>

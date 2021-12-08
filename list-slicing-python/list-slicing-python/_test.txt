@@ -1,0 +1,86 @@
+Make sure the files we ship to students aren't broken in ways we don't intend.
+
+Basic exercise file:
+
+    >>> from list_operations import *
+
+Let's make a list to play with:
+
+    >>> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Now call the functions. These should return useless values:
+
+    >>> head(nums)
+    >>> tail(nums)
+    []
+    >>> last(nums)
+    []
+    >>> init(nums)
+    []
+    >>> first_three(nums)
+    []
+    >>> last_five(nums)
+    []
+    >>> middle(nums)
+    []
+    >>> inner_four(nums)
+    []
+    >>> inner_four_end(nums)
+    []
+
+For these, we ask students to change the list in place. That shouldn't happen yet.
+
+    >>> replace_head(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> replace_third_and_last(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> replace_middle(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> delete_third_and_seventh(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> delete_middle(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+
+Now we should check the Further Study file. Import it:
+
+    >>> from further_study import *
+
+Create some lists to play with:
+
+    >>> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    >>> fruits = ["apple", "berry", "cherry"]
+
+And try the functions. Again, all should return nonsense and/or not actually
+alter the input list.
+
+    >>> custom_len(nums)
+    0
+    >>> custom_append(nums, 42)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> custom_extend(nums, fruits)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> custom_insert(nums, 3, 42)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> custom_remove(nums, 8)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> custom_pop(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> custom_index(nums, 3)
+    0
+    >>> custom_count(nums, 3)
+    0
+    >>> custom_reverse(nums)
+    >>> nums == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    True
+    >>> custom_contains(nums, 6)
+    >>> custom_equality(nums, fruits)
